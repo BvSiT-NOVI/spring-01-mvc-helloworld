@@ -13,7 +13,15 @@ import java.util.Date;
 @Controller
 @RequestMapping("/hello")
 public class HelloController {
+    @Autowired
+    private ApplicationContext appContext;
+
     @RequestMapping(method = RequestMethod.GET)public String printHello(ModelMap model) {
+        String[] allBeanNames = appContext.getBeanDefinitionNames();
+        System.out.println("Spring beans created:");
+        for(String beanName : allBeanNames) {
+            System.out.println(beanName);
+        }
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String currentTime = "Time : "+formatter.format(new Date());
         String message = "Spring MVC basic example. Refresh your browser to show the current time.";
