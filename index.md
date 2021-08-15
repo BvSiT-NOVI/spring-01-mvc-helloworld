@@ -12,13 +12,13 @@ So we do use Maven. In order to still get a firm idea of how it felt to develop 
 
 You only need to have some basic understanding of Java, how to create a simple Java application and how to run it with the IntelliJ IDE. I avoided using theoretical concepts such as dependency injection, inversion-of-control, etc. and tried to explain everything as simple as possible, just enough to give you a basic idea of what is going on. You can find excellent in-depth information on Tutorialspoint.
 
-Creating the Spring MVC Hello World example.
+#### Creating the Spring MVC Hello World example.
 
-#### What do we want to create?
+_What do we want to create?_
 
 We want to create an application which allows us to show a web page, in other words we create a web application. The web page will show some text and time and date.
 
-How do we create our application with Spring?
+_How do we create our application with Spring?_
 
 We are using the Java Spring framework. A core principle of the Spring framework is to contain our business logic as much as possible in simple Java classes. The instantiating of these classes and all needed functionality is taken care of by Spring behind the scene. These instantiated classes (components) are called Spring beans. The configuration of the beans can be done in an XML Spring configuration file. A characteristic of this approach is that we have a lot of functionality available from these Spring Beans without having to instantiate them ourselves. This can be confusing at first. We will see in our example how this is done in practice. 
 
