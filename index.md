@@ -1,5 +1,6 @@
+## Recreate Spring MVC Hello World example from TutorialsPoint
 
-## Why to study this example
+#### Why to study this example
 
 To better understand Spring Boot it helps a lot to take a step back in history and study the Spring framework as it has been used before the introduction of Spring Boot in 2013. Very helpful for me was the [Spring Core Basic tutorial](https://www.tutorialspoint.com/spring/index.htm) on tutorialspoint.com. Although the tutorial is somewhat outdated the core principles are well explained and illustrated with clear examples. I recommend trying to reproduce these examples and have them run correctly. To help you with this I give here an example of how I got the examples running. Also I summarize in simple terms how it helped me to understand better how the Spring framework works.
 
@@ -35,7 +36,7 @@ There are some important differences:
 
 \[TODO run on separate server\]
 
-####Summary of steps
+#### Summary of steps
 
 1. Create an IntelliJ Maven project  with the name spring01-mvc-helloworld and create a package _nl.bvsit_ under the _src/main/java_ folder in the created project.
 
@@ -55,7 +56,7 @@ There are some important differences:
 
 9. Browse to [http://localhost/HelloWeb/hello](http://localhost/HelloWeb/hello) to see the result.
 
-All files to be created.
+#### All files to be created
 
 Let’s have a look at the various files to create in some more detail.
 
@@ -66,112 +67,127 @@ It also describes several plugins. The _tomcat7-maven-plugin_ allows us to run o
 **pom.xml**
 
 ````xml
-<?_xml version\="1.0" encoding\="UTF-8"_?>  
-<project xmlns\="http://maven.apache.org/POM/4.0.0" xmlns:xsi\="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation\="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"\>  
-    <modelVersion\>4.0.0</modelVersion\>  
-  
-    <groupId\>nl.bvsit</groupId\>  
-    <artifactId\>HelloWeb</artifactId\>  
-    <packaging\>war</packaging\>  
-    <version\>1.0-SNAPSHOT</version\>  
-  
-    <properties\>  
-        <java.version\>11</java.version\>  
-        <maven.compiler.source\>$JAVA.VERSION$</maven.compiler.source\>  
-        <maven.compiler.target\>$JAVA.VERSION$</maven.compiler.target\>  
-    </properties\>  
-  
-    <dependencies\> _<!-- Spring MVC support -->_ <dependency\>  
-            <groupId\>org.springframework</groupId\>  
-            <artifactId\>spring-webmvc</artifactId\>  
-            <version\>5.3.9</version\>  
-        </dependency\> _<!-- Tag libs support for view layer -->_ <dependency\>  
-            <groupId\>javax.servlet</groupId\>  
-            <artifactId\>jstl</artifactId\>  
-            <version\>1.2</version\>  
-            <scope\>runtime</scope\>  
-        </dependency\>  
-    </dependencies\>  
-    <build\> _<!--BvS Do not include version in WAR name-->_ <finalName\>${project.artifactId}</finalName\>  
-        <plugins\>  
-            <plugin\>  
-                <groupId\>org.apache.maven.plugins</groupId\>  
-                <artifactId\>maven-compiler-plugin</artifactId\>  
-                <version\>3.8.0</version\>  
-                <configuration\>  
-                    <release\>11</release\> _<!--or <release>10</release>-->_ </configuration\>  
-            </plugin\>  
-            <plugin\>  
-                <groupId\>org.apache.tomcat.maven</groupId\>  
-                <artifactId\>tomcat7-maven-plugin</artifactId\>  
-                <version\>2.2</version\>  
-            </plugin\>  
-        </plugins\>  
-    </build\>  
-</project\>
-````
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-`
+    <groupId>nl.bvsit</groupId>
+    <artifactId>HelloWeb</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>$JAVA.VERSION$</maven.compiler.source>
+        <maven.compiler.target>$JAVA.VERSION$</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- Spring MVC support -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.9</version>
+        </dependency>
+
+        <!-- Tag libs support for view layer -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <!--BvS Do not include version in WAR name-->
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>11</release>  <!--or <release>10</release>-->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+````
 
 Spring will look for the existence of XML files that can serve as configuration files. If it finds web.xml it will try to create a Spring bean of type DispatcherServlet This servlet is responsible for receiving requests and sending them to the controller. This servlet will run in a web server, in our case a Tomcat server.
 
 **src/main/webapp/WEB-INF/web.xml**
 
 ````xml
-<web-app id \= "WebApp\_ID" version \= "2.4" xmlns \= "http://java.sun.com/xml/ns/j2ee" xmlns:xsi \= "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation \= "http://java.sun.com/xml/ns/j2ee  
-   http://java.sun.com/xml/ns/j2ee/web-app\_2\_4.xsd"\>  
-  
-    <display-name\>Spring MVC Application</display-name\>  
-  
-    <servlet\>  
-        <servlet-name\>HelloWeb</servlet-name\>  
-        <servlet-class\>  
-            org.springframework.web.servlet.DispatcherServlet  
-        </servlet-class\>  
-        <load-on-startup\>1</load-on-startup\>  
-    </servlet\>  
-  
-    <servlet-mapping\>  
-        <servlet-name\>HelloWeb</servlet-name\>  
-        <url-pattern\>/</url-pattern\>  
-    </servlet-mapping\>  
-</web-app\>
+<web-app id = "WebApp_ID" version = "2.4"
+         xmlns = "http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://java.sun.com/xml/ns/j2ee
+   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <display-name>Spring MVC Application</display-name>
+
+    <servlet>
+        <servlet-name>HelloWeb</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelloWeb</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+</web-app>
 ````
 Another Spring configuration file with typically a name ending on -servlet.xml  will create a Spring bean of type InternalResourceViewResolver. It allows to create a web page from a JSP file to be send on a request. Note that the JSP files have to exist under “/WEB-INF/jsp/” since this path is set as a property.
 
 **src/main/webapp/WEB-INF/HelloWeb-servlet.xml**
 
 ````xml
-`<beans xmlns \= "http://www.springframework.org/schema/beans" xmlns:context \= "http://www.springframework.org/schema/context" xmlns:xsi \= "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation \= "http://www.springframework.org/schema/beans  
-   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
-   http://www.springframework.org/schema/context  
-   http://www.springframework.org/schema/context/spring-context-3.0.xsd"\>  
-  
-    <context:component-scan base-package \= "nl.bvsit" />  
-  
-    <bean class \= "org.springframework.web.servlet.view.InternalResourceViewResolver"\>  
-        <property name \= "prefix" value \= "/WEB-INF/jsp/" />  
-        <property name \= "suffix" value \= ".jsp" />  
-    </bean\>  
-  
-</beans\>`
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:context = "http://www.springframework.org/schema/context"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <context:component-scan base-package = "nl.bvsit" />
+
+    <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name = "prefix" value = "/WEB-INF/jsp/" />
+        <property name = "suffix" value = ".jsp" />
+    </bean>
+
+</beans>
 ````
 Just the same as with the original example on Tutorialspoint we use a Java Server Page file to create the view. JSP has some limitations which is why nowadays Spring recommends other HTML template engines and will use by default ThymeLeaf to create a web page view. In this example the variables _message_ and _time_ are passed by  the HelloController.
 
  **src/main/webapp/WEB-INF/jsp/hello.jsp**
 
-````jsp
-<%@ page contentType \= "text/html; charset = UTF-8" %>  
-<html\>  
-<head\>  
-    <title\>Hello World</title\>  
-</head\>  
-  
-<body\>  
-<h2\>${message}</h2\>  
-<h3\>${time}</h3\>  
-</body\>  
-</html\>
+````jsp 
+<%@ page contentType = "text/html; charset = UTF-8" %>
+<html>
+<head>
+    <title>Hello World</title>
+</head>
+
+<body>
+<h2>${message}</h2>
+<h3>${time}</h3>
+</body>
+</html>
 ````
 
 In HelloController.java we see some other typical characteristics of Spring. First of all there is the extensive use of annotations. Annotations are part of Java since a long time, i.e. the very common @Override annotation. Nowadays frameworks use annotations use extensively to signal to the compiler to compile the class in a specific way. To be able to do this it uses a process called reflection. By using reflection the compiler can for example create code which instantiates our classes with a certain name. The Spring framework contains its own specific annotations. The use of Spring annotations is an alternative to using XML files as a way to configure Spring Beans. In this case annotating the class with @Controller will have Spring create a Spring MVC Controller bean with the name helloController from the class (and all other necessary beans if needed).
@@ -181,27 +197,33 @@ As you can see the method printHello() returns a simple String. This string has 
 **src/main/java/nl/bvsit/HelloController.java**
 
 ````java
-package nl.bvsit;  
-  
-import org.springframework.beans.factory.annotation.Autowired;  
-import org.springframework.context.ApplicationContext;  
-import org.springframework.stereotype.Controller;  
-import org.springframework.web.bind.annotation.RequestMapping;  
-import org.springframework.web.bind.annotation.RequestMethod;  
-import org.springframework.ui.ModelMap;  
-import java.text.SimpleDateFormat;  
-import java.util.Date;  
-  
-@Controller  
-@RequestMapping("/hello")  
-public class HelloController { @RequestMapping(method = RequestMethod._GET_)public String printHello(ModelMap model) { SimpleDateFormat formatter \= new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); String currentTime \= "Time : "+formatter.format(new Date()); String message \= "Spring MVC basic example. Refresh your browser to show the current time.";  
-        model.addAttribute("message", message);  
-        model.addAttribute("time",currentTime); return "hello";  
-    }  
+package nl.bvsit;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.ModelMap;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+@Controller
+@RequestMapping("/hello")
+public class HelloController {
+    @RequestMapping(method = RequestMethod.GET)public String printHello(ModelMap model) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String currentTime = "Time : "+formatter.format(new Date());
+        String message = "Spring MVC basic example. Refresh your browser to show the current time.";
+        model.addAttribute("message", message);
+        model.addAttribute("time",currentTime);
+        return "hello";
+    }
 }
+
 ````
 
-####Running the application
+#### Running the application
 
 Start the application by running in the IntelliJ Terminal window the command _mvn tomcat7:run_ Then browse to [http://localhost/HelloWeb/hello](http://localhost/HelloWeb/hello) to see the result.
 
