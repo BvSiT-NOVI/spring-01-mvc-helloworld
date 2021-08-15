@@ -237,5 +237,5 @@ In the original TutorialsPoint example the application is run by first compiling
 
 [https://www.tutorialspoint.com/springmvc/index](https://www.tutorialspoint.com/springmvc/index)
 
-[https://www.tutorialspoint.com/springmvc/springmvc_overview.htm](https://www.tutorialspoint.com/springmvc/springmvc_overview.htm)
+[https://www.tutorialspoint.com/springmvc/springmvc_overview](https://www.tutorialspoint.com/springmvc/springmvc_overview)
 
