@@ -2,7 +2,7 @@
 
 #### Why to study this example
 
-To better understand Spring Boot it helps a lot to take a step back in history and study the Spring framework as it has been used before the introduction of Spring Boot in 2013. Very helpful for me was the [Spring Core Basic tutorial](https://www.tutorialspoint.com/spring/index.htm) on tutorialspoint.com. Although the tutorial is somewhat outdated the core principles are well explained and illustrated with clear examples. I recommend trying to reproduce these examples and have them run correctly. To help you with this I give here an example of how I got the examples running. Also I summarize in simple terms how it helped me to understand better how the Spring framework works.
+To better understand Spring Boot it helps a lot to take a step back in history and study the Spring framework as it has been used before the introduction of Spring Boot in 2013. Very helpful for me was the [Spring Core Basic tutorial](https://www.tutorialspoint.com/spring/index.htm) on [TutorialsPoint][https://www.tutorialspoint.com]. Although the tutorial is somewhat outdated the core principles are well explained and illustrated with clear examples. I recommend trying to reproduce these examples and have them run correctly. To help you with this I give here an example of how I got the examples running. Also I summarize in simple terms how it helped me to understand better how the Spring framework works.
 
 The examples in the tutorial do not use any dependency manager as Maven or Gradle. Actually I found it was a great exercise to try to reproduce the examples by adding all JAR dependencies by hand. It very quickly brings home to you why dependency managers exist in the first place. However recreating the examples without Maven is beyond the scope of this example.
 
@@ -38,17 +38,17 @@ There are some important differences:
 
 #### Summary of steps
 
-1. Create an IntelliJ Maven project  with the name spring01-mvc-helloworld and create a package _nl.bvsit_ under the _src/main/java_ folder in the created project.
+1. Create an IntelliJ Maven project with the name spring01-mvc-helloworld and create a package _nl.bvsit_ under the _src/main/java_ folder in the created project.
 
 2. Adapt the content of the Maven pom.xml to have the necessary dependencies available.
 
 3. Create under the folder main the folder structure /webapp/WEB-INF
 
-4. Create Spring configuration files _web.xml_ and _HelloWeb-servlet.xml_ under the _webapp/WEB-INF_ folder.
+4. Create Spring configuration files _web.xml_ and _HelloWeb-servlet.xml_ under the _webapp/WEB-INF_ folder.
 
-5. Create a Java class _HelloController_ under the _nl.bvsit_ package.
+5. Create a Java class _HelloController_ under the _nl.bvsit_ package.
 
-6. Create a sub-folder with a name _jsp_ under the _Webapp/WEB-INF_ folder. Create a view file _hello.jsp_ under this sub-folder.
+6. Create a sub-folder with a name _jsp_ under the _Webapp/WEB-INF_ folder. Create a view file _hello.jsp_ under this sub-folder.
 
 7. Create the content of all the source and configuration files as mentioned below.
 
@@ -60,7 +60,7 @@ There are some important differences:
 
 Let’s have a look at the various files to create in some more detail.
 
-First of all we have to adapt the Maven configuration file pom.xml In this file we add the dependencies our application needs. A dependency is one or combination of several Java libraries (JARs) our application needs to have some functionality available. In this case we need a.o.  the Spring framework libraries to be able to run a web application, so in the pom.xml you will find the dependency called _spring-webmvc_ which consist in itself of several JARs.
+First of all we have to adapt the Maven configuration file pom.xml In this file we add the dependencies our application needs. A dependency is one or combination of several Java libraries (JARs) our application needs to have some functionality available. In this case we need a.o. the Spring framework libraries to be able to run a web application, so in the pom.xml you will find the dependency called _spring-webmvc_ which consist in itself of several JARs.
 
 It also describes several plugins. The _tomcat7-maven-plugin_ allows us to run our application in a temporary tomcat web server, i.e. it allows us to run the application by entering in the IntelliJ Terminal window the command “mvn tomcat7:run”.
 
@@ -150,7 +150,7 @@ Spring will look for the existence of XML files that can serve as configuration 
 
 </web-app>
 ````
-Another Spring configuration file with typically a name ending on -servlet.xml  will create a Spring bean of type InternalResourceViewResolver. It allows to create a web page from a JSP file to be send on a request. Note that the JSP files have to exist under “/WEB-INF/jsp/” since this path is set as a property.
+Another Spring configuration file with typically a name ending on -servlet.xml  will create a Spring bean of type InternalResourceViewResolver. It allows to create a web page from a JSP file to be send on a request. Note that the JSP files have to exist under “/WEB-INF/jsp/” since this path is set as a property.
 
 **src/main/webapp/WEB-INF/HelloWeb-servlet.xml**
 
@@ -172,7 +172,7 @@ Another Spring configuration file with typically a name ending on -servlet.xml 
 
 </beans>
 ````
-Just the same as with the original example on Tutorialspoint we use a Java Server Page file to create the view. JSP has some limitations which is why nowadays Spring recommends other HTML template engines and will use by default ThymeLeaf to create a web page view. In this example the variables _message_ and _time_ are passed by  the HelloController.
+Just the same as with the original example on Tutorialspoint we use a Java Server Page file to create the view. JSP has some limitations which is why nowadays Spring recommends other HTML template engines and will use by default ThymeLeaf to create a web page view. In this example the variables _message_ and _time_ are passed by the HelloController.
 
  **src/main/webapp/WEB-INF/jsp/hello.jsp**
 
@@ -190,7 +190,7 @@ Just the same as with the original example on Tutorialspoint we use a Java Serve
 </html>
 ````
 
-In HelloController.java we see some other typical characteristics of Spring. First of all there is the extensive use of annotations. Annotations are part of Java since a long time, i.e. the very common @Override annotation. Nowadays frameworks use annotations use extensively to signal to the compiler to compile the class in a specific way. To be able to do this it uses a process called reflection. By using reflection the compiler can for example create code which instantiates our classes with a certain name. The Spring framework contains its own specific annotations. The use of Spring annotations is an alternative to using XML files as a way to configure Spring Beans. In this case annotating the class with @Controller will have Spring create a Spring MVC Controller bean with the name helloController from the class (and all other necessary beans if needed).
+In HelloController.java we see some other typical characteristics of Spring. First of all there is the extensive use of annotations. Annotations are part of Java since a long time, i.e. the very common @Override annotation. Nowadays frameworks use annotations use extensively to signal to the compiler to compile the class in a specific way. To be able to do this it uses a process called reflection. By using reflection the compiler can for example create code which instantiates our classes with a certain name. The Spring framework contains its own specific annotations. The use of Spring annotations is an alternative to using XML files as a way to configure Spring Beans. In this case annotating the class with @Controller will have Spring create a Spring MVC Controller bean with the name helloController from the class (and all other necessary beans if needed).
 
 As you can see the method printHello() returns a simple String. This string has to match the name of a view file, in this case hello.jsp .
 
@@ -244,3 +244,5 @@ https://www.tutorialspoint.com/springmvc/index.htm
 https://www.tutorialspoint.com/springmvc/springmvc\_overview.htm
 
  In this vary basic example we use Spring MVC in its most simple form.
+
+[https://www.tutorialspoint.com]: www.tutorialspoint.com
