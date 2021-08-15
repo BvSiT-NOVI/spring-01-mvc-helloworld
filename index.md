@@ -40,7 +40,7 @@ There are some important differences:
 
 2. Adapt the content of the Maven pom.xml to have the necessary dependencies available.
 
-3. Create under the folder main the folder structure /webapp/WEB-INF
+3. Create under the folder main the folder structure _/webapp/WEB-INF_
 
 4. Create Spring configuration files _web.xml_ and _HelloWeb-servlet.xml_ under the _webapp/WEB-INF_ folder.
 
@@ -50,7 +50,7 @@ There are some important differences:
 
 7. Create the content of all the source and configuration files as mentioned below.
 
-8. Start the application by running in the terminal >mvn tomcat7:run
+8. Start the application by running in the IntelliJ Terminal window `mvn tomcat7:run`
 
 9. Browse to [http://localhost/HelloWeb/hello](http://localhost/HelloWeb/hello) to see the result.
 
@@ -120,7 +120,7 @@ It also describes several plugins. The _tomcat7-maven-plugin_ allows us to run o
 </project>
 ````
 
-Spring will look for the existence of XML files that can serve as configuration files. If it finds web.xml it will try to create a Spring bean of type DispatcherServlet. This servlet is responsible for receiving requests and sending them to the controller. This servlet will run in a web server, which is also referred to as a web container, in our case a Tomcat server.
+Spring will look for the existence of XML files that can serve as configuration files. If it finds `web.xml` it will try to create a Spring bean of type _DispatcherServlet_. This servlet is responsible for receiving requests and sending them to the controller. This servlet will run in a web server, which is also referred to as a web container, in our case a Tomcat server.
 
 **src/main/webapp/WEB-INF/web.xml**
 
@@ -148,7 +148,7 @@ Spring will look for the existence of XML files that can serve as configuration 
 
 </web-app>
 ````
-Another Spring configuration file with typically a name ending on -servlet.xml  will create a Spring bean of type InternalResourceViewResolver. It allows to create a web page from a JSP file to be send on a request. Note that the JSP files have to exist under “/WEB-INF/jsp/” since this path is set as a property.
+Another Spring configuration file with typically a name ending on _-servlet.xml_  will create a Spring bean of type _InternalResourceViewResolver_. It allows to create a web page from a JSP file to be send on a request. Note that the JSP files have to exist under _/WEB-INF/jsp/_ since this path is set as a property.
 
 **src/main/webapp/WEB-INF/HelloWeb-servlet.xml**
 
