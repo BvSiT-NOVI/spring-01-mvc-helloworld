@@ -235,7 +235,7 @@ In the original TutorialsPoint example the application is run by first compiling
 
 #### Links
 
-https://www.tutorialspoint.com/springmvc/index.htm
+[https://www.tutorialspoint.com/springmvc/index]()
 
-https://www.tutorialspoint.com/springmvc/springmvc\_overview.htm
+[https://www.tutorialspoint.com/springmvc/springmvc/overview]()
 
