@@ -34,8 +34,6 @@ There are some important differences:
 
 \- We run the application by using the imbedded tomcat server offered by the Apache tomcat maven plugin. This avoids having to export a WAR to a separately installed web server to be able to see the web page created by the web application.
 
-\[TODO run on separate server\]
-
 #### Summary of steps
 
 1. Create an IntelliJ Maven project with the name spring01-mvc-helloworld and create a package _nl.bvsit_ under the _src/main/java_ folder in the created project.
