@@ -120,7 +120,7 @@ It also describes several plugins. The _tomcat7-maven-plugin_ allows us to run o
 </project>
 ````
 
-Spring will look for the existence of XML files that can serve as configuration files. If it finds `web.xml` it will try to create a Spring bean of type _DispatcherServlet_. This servlet is responsible for receiving requests and sending them to the controller. This servlet will run in a web server, which is also referred to as a web container, in our case a Tomcat server.
+Spring will look for the existence of XML files that can serve as configuration files. If it finds _web.xml_ it will try to create a Spring bean of type _DispatcherServlet_. This servlet is responsible for receiving requests and sending them to the controller. This servlet will run in a web server, which is also referred to as a web container, in our case a Tomcat server.
 
 **src/main/webapp/WEB-INF/web.xml**
 
