@@ -233,14 +233,9 @@ In the original TutorialsPoint example the application is run by first compiling
 
 3. Browse to [http://localhost/HelloWeb/hello](http://localhost/HelloWeb/hello) to see the result.
 
-TODO links:
-
-github
+#### Links
 
 https://www.tutorialspoint.com/springmvc/index.htm
 
 https://www.tutorialspoint.com/springmvc/springmvc\_overview.htm
 
- In this vary basic example we use Spring MVC in its most simple form.
-
-[https://www.tutorialspoint.com]: www.tutorialspoint.com
