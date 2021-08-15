@@ -1,8 +1,8 @@
-## Recreate Spring MVC Hello World example from TutorialsPoint
+## Recreating the Spring MVC Hello World example from TutorialsPoint
 
 #### Why to study this example
 
-To better understand Spring Boot it helps a lot to take a step back in history and study the Spring framework as it has been used before the introduction of Spring Boot in 2013. Very helpful for me was the [Spring Core Basic tutorial](https://www.tutorialspoint.com/spring/index.htm) on [TutorialsPoint][https://www.tutorialspoint.com]. Although the tutorial is somewhat outdated the core principles are well explained and illustrated with clear examples. I recommend trying to reproduce these examples and have them run correctly. To help you with this I give here an example of how I got the examples running. Also I summarize in simple terms how it helped me to understand better how the Spring framework works.
+To better understand Spring Boot it helps a lot to take a step back in history and study the Spring framework as it has been used before the introduction of Spring Boot in 2013. Very helpful for me was the [Spring Core Basic tutorial](https://www.tutorialspoint.com/spring/index.htm) on [TutorialsPoint](https://www.tutorialspoint.com). Although the tutorial is somewhat outdated the core principles are well explained and illustrated with clear examples. I recommend trying to reproduce these examples and have them run correctly. To help you with this I give here an example of how I got the examples running. Also I summarize in simple terms how it helped me to understand better how the Spring framework works.
 
 The examples in the tutorial do not use any dependency manager as Maven or Gradle. Actually I found it was a great exercise to try to reproduce the examples by adding all JAR dependencies by hand. It very quickly brings home to you why dependency managers exist in the first place. However recreating the examples without Maven is beyond the scope of this example.
 
