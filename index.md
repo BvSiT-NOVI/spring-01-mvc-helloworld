@@ -58,9 +58,9 @@ There are some important differences:
 
 Let’s have a look at the various files to create in some more detail.
 
-First of all we have to adapt the Maven configuration file pom.xml In this file we add the dependencies our application needs. A dependency is one or combination of several Java libraries (JARs) our application needs to have some functionality available. In this case we need a.o. the Spring framework libraries to be able to run a web application, so in the pom.xml you will find the dependency called _spring-webmvc_ which consist in itself of several JARs.
+First of all we have to adapt the Maven configuration file pom.xml In this file we add the dependencies our application needs. A dependency is one or a combination of several Java libraries (JARs) our application needs to have some functionality available. In this case we need a.o. the Spring framework libraries to be able to run a web application, so in the pom.xml you will find the dependency called _spring-webmvc_ which consist in itself of several JARs.
 
-It also describes several plugins. The _tomcat7-maven-plugin_ allows us to run our application in a temporary tomcat web server, i.e. it allows us to run the application by entering in the IntelliJ Terminal window the command “mvn tomcat7:run”.
+It also describes several plugins. The _tomcat7-maven-plugin_ allows us to run our application in a temporary tomcat web server, i.e. it allows us to run the application by entering in the IntelliJ Terminal window the command `mvn tomcat7:run`
 
 **pom.xml**
 
@@ -120,7 +120,7 @@ It also describes several plugins. The _tomcat7-maven-plugin_ allows us to run o
 </project>
 ````
 
-Spring will look for the existence of XML files that can serve as configuration files. If it finds web.xml it will try to create a Spring bean of type DispatcherServlet This servlet is responsible for receiving requests and sending them to the controller. This servlet will run in a web server, in our case a Tomcat server.
+Spring will look for the existence of XML files that can serve as configuration files. If it finds web.xml it will try to create a Spring bean of type DispatcherServlet. This servlet is responsible for receiving requests and sending them to the controller. This servlet will run in a web server, which is also referred to as a web container, in our case a Tomcat server.
 
 **src/main/webapp/WEB-INF/web.xml**
 
@@ -188,7 +188,7 @@ Just the same as with the original example on Tutorialspoint we use a Java Serve
 </html>
 ````
 
-In HelloController.java we see some other typical characteristics of Spring. First of all there is the extensive use of annotations. Annotations are part of Java since a long time, i.e. the very common @Override annotation. Nowadays frameworks use annotations use extensively to signal to the compiler to compile the class in a specific way. To be able to do this it uses a process called reflection. By using reflection the compiler can for example create code which instantiates our classes with a certain name. The Spring framework contains its own specific annotations. The use of Spring annotations is an alternative to using XML files as a way to configure Spring Beans. In this case annotating the class with @Controller will have Spring create a Spring MVC Controller bean with the name helloController from the class (and all other necessary beans if needed).
+In HelloController.java we see some other typical characteristics of Spring. First of all there is the extensive use of annotations. Annotations are part of Java since a long time, i.e. the very common @Override annotation. Nowadays frameworks use annotations extensively to signal to the compiler to compile the class in a specific way. To be able to do this it uses a process called reflection. By using reflection the compiler can e.g. create code which instantiates our classes with a certain name. The Spring framework contains its own specific annotations. The use of Spring annotations is an alternative to using XML files as a way to configure Spring Beans. In this case annotating the class with @Controller will have Spring create a Spring MVC Controller bean with the name helloController from the class (and all other necessary beans if needed).
 
 As you can see the method printHello() returns a simple String. This string has to match the name of a view file, in this case hello.jsp .
 
@@ -218,18 +218,17 @@ public class HelloController {
         return "hello";
     }
 }
-
 ````
 
 #### Running the application
 
-Start the application by running in the IntelliJ Terminal window the command _mvn tomcat7:run_ Then browse to [http://localhost/HelloWeb/hello](http://localhost/HelloWeb/hello) to see the result.
+Start the application by running in the IntelliJ Terminal window the command `mvn tomcat7:run` Then browse to [http://localhost/HelloWeb/hello](http://localhost/HelloWeb/hello) to see the result.
 
 In the original TutorialsPoint example the application is run by first compiling and exporting it as a WAR which then is run on a separately installed Tomcat server. This is still also possible with Maven as follows:
 
-1. running in the IntelliJ Terminal window the command _mvn package_ This will create spring-01-mvc-helloworld\\target\\HelloWeb.war
+1. Run in the IntelliJ Terminal window the command `mvn package` This will create _spring-01-mvc-helloworld\\target\\HelloWeb.war_
 
-2. Install a Tomcat server. In the installation directory you will find a directory webapps. Copy HelloWeb.war to this directory
+2. Install a Tomcat server. In the installation directory you will find a directory _webapps_. Copy _HelloWeb.war_ to this directory
 
 3. Browse to [http://localhost/HelloWeb/hello](http://localhost/HelloWeb/hello) to see the result.
 
