@@ -58,7 +58,7 @@ There are some important differences:
 
 Let’s have a look at the various files to create in some more detail.
 
-First of all we have to adapt the Maven configuration file pom.xml In this file we add the dependencies our application needs. A dependency is one or a combination of several Java libraries (JARs) our application needs to have some functionality available. In this case we need a.o. the Spring framework libraries to be able to run a web application, so in the pom.xml you will find the dependency called _spring-webmvc_ which consist in itself of several JARs.
+First of all we have to adapt the Maven configuration file pom.xml In this file we add the dependencies our application needs. A dependency is one or a combination of several Java libraries (JARs) our application needs to have some functionality available. In this case we need a.o. the Spring framework libraries to be able to run a web application, so in the _pom.xml_ you will find the dependency called _spring-webmvc_ which consist in itself of several JARs.
 
 It also describes several plugins. The _tomcat7-maven-plugin_ allows us to run our application in a temporary tomcat web server, i.e. it allows us to run the application by entering in the IntelliJ Terminal window the command `mvn tomcat7:run`
 
