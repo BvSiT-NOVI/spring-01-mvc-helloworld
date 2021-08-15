@@ -8,13 +8,13 @@ The examples in the tutorial do not use any dependency manager as Maven or Gradl
 
 So we do use Maven. In order to still get a firm idea of how it felt to develop a Spring application before Spring Boot existed I deliberately avoided all use of spring boot libraries as spring boot starters, Initializr, spring.io etc.
 
-####Target audience
+#### Target audience
 
 You only need to have some basic understanding of Java, how to create a simple Java application and how to run it with the IntelliJ IDE. I avoided using theoretical concepts such as dependency injection, inversion-of-control, etc. and tried to explain everything as simple as possible, just enough to give you a basic idea of what is going on. You can find excellent in-depth information on Tutorialspoint.
 
 Creating the Spring MVC Hello World example.
 
-####What do we want to create?
+#### What do we want to create?
 
 We want to create an application which allows us to show a web page, in other words we create a web application. The web page will show some text and time and date.
 
