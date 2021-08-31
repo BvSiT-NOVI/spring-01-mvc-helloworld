@@ -1,6 +1,6 @@
 ## Recreating the Spring MVC Hello World example from TutorialsPoint
 
-#### Why to study this example
+#### Why study this example?
 
 To better understand Spring Boot it helped me a lot to take a step back in history and study the Spring framework as it has been used before the introduction of Spring Boot in 2013. Very helpful for me was the [Spring Core Basic tutorial](https://www.tutorialspoint.com/spring/index.htm) on [TutorialsPoint](https://www.tutorialspoint.com). Although the tutorial is somewhat outdated the core principles are well explained and illustrated with clear examples. I recommend trying to reproduce these examples and have them run correctly. To help you with this I give here an example of how I got the examples running. Also I summarize in simple terms how it helped me to understand better how the Spring framework works.
 
