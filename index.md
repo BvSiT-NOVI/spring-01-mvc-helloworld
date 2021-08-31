@@ -2,15 +2,15 @@
 
 #### Why to study this example
 
-To better understand Spring Boot it helps a lot to take a step back in history and study the Spring framework as it has been used before the introduction of Spring Boot in 2013. Very helpful for me was the [Spring Core Basic tutorial](https://www.tutorialspoint.com/spring/index.htm) on [TutorialsPoint](https://www.tutorialspoint.com). Although the tutorial is somewhat outdated the core principles are well explained and illustrated with clear examples. I recommend trying to reproduce these examples and have them run correctly. To help you with this I give here an example of how I got the examples running. Also I summarize in simple terms how it helped me to understand better how the Spring framework works.
+To better understand Spring Boot it helped me a lot to take a step back in history and study the Spring framework as it has been used before the introduction of Spring Boot in 2013. Very helpful for me was the [Spring Core Basic tutorial](https://www.tutorialspoint.com/spring/index.htm) on [TutorialsPoint](https://www.tutorialspoint.com). Although the tutorial is somewhat outdated the core principles are well explained and illustrated with clear examples. I recommend trying to reproduce these examples and have them run correctly. To help you with this I give here an example of how I got the examples running. Also I summarize in simple terms how it helped me to understand better how the Spring framework works.
 
-The examples in the tutorial do not use any dependency manager as Maven or Gradle. Actually I found it was a great exercise to try to reproduce the examples by adding all JAR dependencies by hand. It very quickly brings home to you why dependency managers exist in the first place. However recreating the examples without Maven is beyond the scope of this example.
+The examples in the tutorial do not use any dependency manager like Maven or Gradle. Actually I found it was a great exercise trying to reproduce the examples by adding all JAR dependencies manually. It immediately brings home to you why dependency managers exist in the first place. However recreating the examples without Maven is beyond the scope of this example.
 
-So we do use Maven. In order to still get a firm idea of how it felt to develop a Spring application before Spring Boot existed I deliberately avoided all use of spring boot libraries as spring boot starters, Initializr, spring.io etc.
+So we do use Maven. In order to still get a firm idea of how it felt to develop a Spring application before Spring Boot existed I deliberately avoided all use of Spring Boot libraries like spring boot starters, Initializr, spring.io etc.
 
 #### Target audience
 
-You only need to have some basic understanding of Java, how to create a simple Java application and how to run it with the IntelliJ IDE. I avoided using theoretical concepts such as dependency injection, inversion-of-control, etc. and tried to explain everything as simple as possible, just enough to give you a basic idea of what is going on. You can find excellent in-depth information on Tutorialspoint.
+You need to have some basic understanding of Java, how to create a simple Java application and how to run it with the IntelliJ IDE. I avoided using theoretical concepts such as dependency injection, inversion-of-control, etc. and tried to explain everything as simple as possible, just enough to give you a basic idea of what is going on. You can find excellent in-depth information on Tutorialspoint and many other websites.
 
 #### Creating the Spring MVC Hello World example.
 
@@ -20,7 +20,11 @@ We want to create an application which allows us to show a web page, in other wo
 
 _How do we create our application with Spring?_
 
-We are using the Java Spring framework. A core principle of the Spring framework is to contain our business logic as much as possible in simple Java classes. The instantiating of these classes and all needed functionality is taken care of by Spring behind the scene. These instantiated classes (components) are called Spring beans. The configuration of the beans can be done in an XML Spring configuration file. A characteristic of this approach is that we have a lot of functionality available from these Spring Beans without having to instantiate them ourselves. This can be confusing at first. We will see in our example how this is done in practice. 
+We are using the Java Spring framework. A core principle of the Spring framework is to contain the core functionality, the so called _business logic_, as much as possible in simple Java classes. The instantiating of these classes and all needed functionality is taken care of by Spring behind the scene. These instantiated classes (or components) are called Spring beans.
+
+ `For novice Java programmers: be very aware of the difference between a class, which in itself only is a description of what you want to do, and the actual instantiation of a class, which creates a component, also called a bean, of your class in memory with a specific name which you can actually use to perform a task.`
+  
+ The configuration of the beans can be done in an XML Spring configuration file. A characteristic of this approach is that we have a lot of functionality available from these Spring Beans without having to instantiate them ourselves. This can be confusing at first. We will see in our example how this is done in practice. 
 
 Spring allows us to develop a web application using the MVC architecture. MVC stand for Model-View-Controller. This allows us to clearly separate the different tasks. One task is to show a web page (the view), another to create the content (the model). In this case the controller waits for a request from a web client. In other words, by entering a link in a browser that targets our application we trigger the controller which takes care of sending the data offered by the model to the view. The result is that a web page is shown in our browser with the data we send.
 
@@ -30,7 +34,7 @@ There are some important differences:
 
 \- We use as IDE IntelliJ instead of Eclipse
 
-\- We use Maven dependency management, so we have to create a Maven project in IntelliJ. Keep in mind that Maven also creates a somewhat different project structure than is used in the original example on Tutorialspoint.
+\- We use Maven dependency management, so we have to create a Maven project in IntelliJ. Keep in mind that a Maven project has a somewhat different project structure than is used in the original example on Tutorialspoint.
 
 \- We run the application by using the imbedded tomcat server offered by the Apache tomcat maven plugin. This avoids having to export a WAR to a separately installed web server to be able to see the web page created by the web application.
 
@@ -120,7 +124,7 @@ It also describes several plugins. The _tomcat7-maven-plugin_ allows us to run o
 </project>
 ````
 
-Spring will look for the existence of XML files that can serve as configuration files. If it finds _web.xml_ it will try to create a Spring bean of type _DispatcherServlet_. This servlet is responsible for receiving requests and sending them to the controller. This servlet will run in a web server, which is also referred to as a web container, in our case a Tomcat server.
+Spring will look for the existence of XML files that can serve as configuration files. If it finds a correctly configured _web.xml_ it will try to create a Spring bean of type _DispatcherServlet_. This servlet is responsible for receiving requests and sending them to the controller. This servlet will run in a web server, which is also referred to as a web container, in our case a Tomcat server.
 
 **src/main/webapp/WEB-INF/web.xml**
 
@@ -170,7 +174,7 @@ Another Spring configuration file with typically a name ending on _-servlet.xml_
 
 </beans>
 ````
-Just the same as with the original example on Tutorialspoint we use a Java Server Page file to create the view. JSP has some limitations which is why nowadays Spring recommends other HTML template engines and will use by default ThymeLeaf to create a web page view. In this example the variables _message_ and _time_ are passed by the HelloController.
+Just as with the original example on Tutorialspoint we use a Java Server Page file to create the view. JSP has some limitations which is why nowadays Spring recommends other HTML template engines and will use by default ThymeLeaf to create a web page view. In this example the variables _message_ and _time_ are passed by the HelloController.
 
  **src/main/webapp/WEB-INF/jsp/hello.jsp**
 
