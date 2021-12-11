@@ -2,9 +2,11 @@
 
 #### Why study this example?
 
-To better understand Spring Boot it helped me a lot to take a step back in history and study the Spring framework as it has been used before the introduction of Spring Boot in 2013. Very helpful for me was the [Spring Core Basic tutorial](https://www.tutorialspoint.com/spring/index.htm) on [TutorialsPoint](https://www.tutorialspoint.com). Although the tutorial is somewhat outdated the core principles are well explained and illustrated with clear examples. I recommend trying to reproduce these examples and have them run correctly. To help you with this I give here an example of how I got the examples running. Also I summarize in simple terms how it helped me to understand better how the Spring framework works.
+To better understand Spring Boot it helped me a lot to take a step back in history and study the Spring framework as it has been used before the introduction of Spring Boot in 2013. Very helpful for me was the [Spring Core Basic tutorial](https://www.tutorialspoint.com/spring/index.htm) on [TutorialsPoint](https://www.tutorialspoint.com). Although the tutorial is somewhat outdated the core principles are well explained and illustrated with clear examples. I recommend trying to reproduce these examples and have them run correctly. To help you with this I give here an example of how I got the examples running. Also I summarize in simple terms how it helped me to better understand how the Spring framework works.
 
-The examples in the tutorial do not use any dependency manager like Maven or Gradle. Actually I found it was a great exercise trying to reproduce the examples by adding all JAR dependencies manually. It immediately brings home to you why dependency managers exist in the first place. However recreating the examples without Maven is beyond the scope of this example.
+All the reconstructed examples from the [Spring Core Basic tutorial](https://www.tutorialspoint.com/spring/index.htm) can be found [here](https://github.com/BvSiT-NOVI/spring-framework-tutorialspoint)
+
+The original examples in the tutorial do not use any dependency manager like Maven or Gradle. Actually I found it was a great exercise trying to reproduce the examples by adding all JAR dependencies manually. It immediately brings home to you why dependency managers exist in the first place. However recreating the examples without Maven is beyond the scope of this example.
 
 So we do use Maven. In order to still get a firm idea of how it felt to develop a Spring application before Spring Boot existed I deliberately avoided all use of Spring Boot libraries like spring boot starters, Initializr, spring.io etc.
 
@@ -192,7 +194,7 @@ Just as with the original example on Tutorialspoint we use a Java Server Page fi
 </html>
 ````
 
-In HelloController.java we see some other typical characteristics of Spring. First of all there is the extensive use of annotations. Annotations are part of Java since a long time, i.e. the very common @Override annotation. Nowadays frameworks use annotations extensively to signal to the compiler to compile the class in a specific way. To be able to do this it uses a process called reflection. By using reflection the compiler can e.g. create code which instantiates our classes with a certain name. The Spring framework contains its own specific annotations. The use of Spring annotations is an alternative to using XML files as a way to configure Spring Beans. In this case annotating the class with @Controller will have Spring create a Spring MVC Controller bean with the name helloController from the class (and all other necessary beans if needed).
+In HelloController.java we see some other typical characteristics of Spring. First of all there is the extensive use of annotations. Annotations are part of Java since a long time, i.e. the very common `@Override` annotation. Nowadays frameworks use annotations extensively to signal to the compiler to compile the class in a specific way. To be able to do this it uses a process called reflection. By using reflection the compiler can e.g. create code which instantiates our classes with a certain name. The Spring framework contains its own specific annotations. The use of Spring annotations is an alternative to using XML files as a way to configure Spring Beans. In this case annotating the class with `@Controller` will have Spring create a Spring MVC Controller bean with the name _helloController_ from the class (and all other necessary beans if needed).
 
 As you can see the method printHello() returns a simple String. This string has to match the name of a view file, in this case hello.jsp .
 
@@ -235,6 +237,9 @@ In the original TutorialsPoint example the application is run by first compiling
 2. Install a Tomcat server. In the installation directory you will find a directory _webapps_. Copy _HelloWeb.war_ to this directory
 
 3. Browse to [http://localhost/HelloWeb/hello](http://localhost/HelloWeb/hello) to see the result.
+
+
+
 
 #### Links
 
